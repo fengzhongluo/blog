@@ -36,7 +36,7 @@ public class ArticleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArticleService  service=new ArticleServiceImpl();
 		String method=request.getParameter("method");
-		if("all".equals(method)||"".equals(method)||null==method) {
+		if("all".equals(method)) {
 			
 			List<Object> list=service.getArticleList(); 
 			request.setAttribute("list", list);
@@ -65,6 +65,8 @@ public class ArticleServlet extends HttpServlet {
 			request.setAttribute("article", article);
 			request.getRequestDispatcher("/WEB-INF/front/article.jsp").forward(request, response);
 			
+		}else {
+			request.getRequestDispatcher("/WEB-INF/front/home.jsp").forward(request, response);
 		}
 		
 	}

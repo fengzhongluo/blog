@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sparkstu.entity.Article;
+import com.sparkstu.service.ArticleService;
+import com.sparkstu.service.impl.ArticleServiceImpl;
+
 /**
  * Servlet implementation class AdminServlet
  */
@@ -28,13 +32,27 @@ public class AdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String mothed = request.getParameter("to");
-		if ("form".equals(mothed)) {
+		String method = request.getParameter("to");
+		ArticleService service = new ArticleServiceImpl();
+		if ("form".equals(method)) {
 
-			request.getRequestDispatcher("/WEB-INF/admin/form.html").forward(request, response);
-		} else {
+			request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
+		} else if ("add".equals(method)) {
+			String title = request.getParameter("title");
+			String author = request.getParameter("author");
+			String summary = request.getParameter("summary");
+			String content = request.getParameter("content");
+			String publishTime = request.getParameter("publishTime");
+			String url = request.getParameter("url");
+			String html = request.getParameter("html");
+			String tags = request.getParameter("tags");
+			String[] params = { title, author, summary, content, publishTime, url, html, tags };
+
+			int id=service.addArticle(params);
+			request.getRequestDispatcher("/WEB-INF/article?method=contents&id="+id).forward(request, response);
+
+		}else {
 			request.getRequestDispatcher("/WEB-INF/admin/index.jsp").forward(request, response);
-
 		}
 
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
