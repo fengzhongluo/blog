@@ -175,7 +175,7 @@ public class BaseDao {
 		}
 		return affectedLine;
 	}
-
+	
 	private void closeConn() {
 
 		if (rs != null) {
