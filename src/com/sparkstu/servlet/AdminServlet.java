@@ -49,8 +49,9 @@ public class AdminServlet extends HttpServlet {
 			String[] params = { title, author, summary, content, publishTime, url, html, tags };
 
 			int id=service.addArticle(params);
-			request.getRequestDispatcher("/WEB-INF/article?method=contents&id="+id).forward(request, response);
-
+			
+			//request.getRequestDispatcher("/WEB-INF/article?method=contents&id="+id).forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
 		}else {
 			request.getRequestDispatcher("/WEB-INF/admin/index.jsp").forward(request, response);
 		}
