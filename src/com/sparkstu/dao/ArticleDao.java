@@ -11,5 +11,4 @@ public interface ArticleDao {
 
 	int insert(String sql, Object[] params);
 	
-
 }

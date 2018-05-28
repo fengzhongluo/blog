@@ -42,6 +42,11 @@ public class ArticleServiceImpl implements ArticleService {
 		String sql ="insert into blog(id,title,author,summary,content,publishTime,url,html,tags) values(uuid(),?,?,?,?,?,?,?,?)";
         return articleDao.insert(sql, params);
 	}
+	@Override
+	public int editArticle(Object[] params) {
+		String sql ="update blog set title= ?,author=?,summary=?,content=?,publishTime=?,url=?,html=?,tags=? where id=?";
+        return articleDao.insert(sql, params);
+	}
 	
 
 }

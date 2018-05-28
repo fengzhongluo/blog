@@ -43,11 +43,12 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="http://127.0.0.1:8080/blog/admin?to=add" method="post">
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="http://127.0.0.1:8080/blog/admin?to=edit" method="post">
+                                	<input type="hidden" name="id" value="${article.id }">
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字" name="title" required>
+                                            <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字" name="title" value="${article.title }" required>
                                             <small>请填写标题文字10-20字左右。</small>
                                         </div>
                                     </div>
@@ -55,7 +56,7 @@
                                     <div class="am-form-group">
                                         <label for="user-email" class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="" name="publishTime" placeholder="时间必填" required>
+                                            <input type="text" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="" name="publishTime" value="${article.publishTime }"  placeholder="时间必填" required>
                                             <small>发布时间为必填</small>
                                         </div>
                                     </div>
@@ -63,7 +64,7 @@
                                     <div class="am-form-group">
                                         <label for="user-phone" class="am-u-sm-3 am-form-label">作者 <span class="tpl-form-line-small-title">Author</span></label>
                                         <div class="am-u-sm-9">
-                                            <select data-am-selected="{searchBox: 1}" style="display: none;"  name="author">
+                                            <select data-am-selected="{searchBox: 1}" style="display: none;"  name="author" value="${article.author }" >
 											  <option value="a">-The.CC</option>
 											  <option value="b">夕风色</option>
 											  <option value="o">Orange</option>
@@ -75,7 +76,7 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label">SEO关键字 <span class="tpl-form-line-small-title">SEO</span></label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" placeholder="输入SEO关键字">
+                                            <input type="text"   placeholder="输入SEO关键字">
                                         </div>
                                     </div>
 
@@ -84,12 +85,12 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img src="admin/assets/img/a5.png" alt="">
+                                                    <img id="imgPre" src="admin/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
-    												<i class="am-icon-cloud-upload"></i> 添加封面图片
+    												<i  class="am-icon-cloud-upload"></i> 添加封面图片
                                                 </button>
-                                                <input id="doc-form-file" type="file" multiple="">
+                                                <input id="doc-form-file" type="file" multiple="" name="file" accept="image/*" onchange="preImg(this.id,'imgPre');">
                                             </div>
 
                                         </div>
@@ -122,7 +123,7 @@
 									<div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">摘要 <span class="tpl-form-line-small-title">summary</span></label>
                                         <div class="am-u-sm-9">
-                                            <textarea rows="5" id="user-intro" placeholder="请输入标题文字" name="summary"></textarea>
+                                            <textarea rows="5" id="user-intro" placeholder="请输入标题文字" name="summary"  >${article.summary}</textarea>
                                             <small>请填写标题文字10-20字左右。</small>
                                         </div>
                                     </div>
@@ -130,7 +131,8 @@
                                     <div class="am-form-group">
                                         <label for="user-intro" class="am-u-sm-3 am-form-label">文章内容</label>
                                         <div class="am-u-sm-9" >
-                                            <textarea class="am-validate" name="html" id="editor" placeholder="请输入标题" required ></textarea>
+											<!-- <textarea class="am-validate" name="html" id="editor" placeholder="请输入标题"   required ></textarea> -->
+                                            <script type="text/plain" id="editor" name="html"  placeholder="请输入标题"   required>${article.html}</script>
                                             
                                         </div>
                                     </div>
@@ -163,6 +165,57 @@
     <script type="text/javascript" charset="utf-8" src="UEditor/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
     	var ue = UE.getEditor('editor').hasContents();
+    	
+    	function getFileUrl(sourceId) {   
+            var url;   
+            if (navigator.userAgent.indexOf("MSIE")>=1) { // IE   
+            url = document.getElementById(sourceId).value;   
+        }   
+            else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox   
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));   
+        }   
+            else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome   
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));   
+        }   
+            return url;   
+        }  
+        function preImg(sourceId, targetId) {   
+            var url = getFileUrl(sourceId);   
+            var imgPre = document.getElementById(targetId);   
+            imgPre.src = url;   
+        }   
+
+    	
+    	
+    	var uploading = false;
+    	function fileChange(){
+    		var img="<img src='"+$("#doc-form-file").val()+"' alt=''>";
+    		$(".tpl-form-file-img").html(img);
+    		
+    	}
+    	function fileChange1(){
+    	    $("#fileTypeError").html('');
+    	    var fileName = $('#doc-form-file').val();								//获得文件名称
+    	    var fileType = fileName.substr(fileName.length-4,fileName.length);	//截取文件类型,如(.xls)
+    	    if(fileType=='.jpg' || fileType=='.doc' || fileType=='.pdf'){	//验证文件类型,此处验证也可使用正则
+    	        $.ajax({
+    	            url: 'http://127.0.0.1:8080/blog/uploadfile',		　//上传地址
+    	            type: 'POST',
+    	            cache: false,　　
+    	            data: new FormData($('#uploadForm')[0]),　　　　　　　　　　　　　//表单数据
+    	            processData: false,
+    	            contentType: false,
+    	            success:function(data){
+    	                if(data=='fileTypeError'){
+    	                    $("#fileTypeError").html('*上传文件类型错误,支持类型: .xsl .doc .pdf');　　//根据后端返回值,回显错误信息
+    	                }
+    	                $("input[name='enclosureCode']").attr('value',data);
+    	            }
+    	        });
+    	    }else{
+    	        $("#fileTypeError").html('*上传文件类型错误,支持类型: .xls .doc .pdf');
+    	    }
+    	}
     	//var html=ue.getContent();
     </script>
 </body>

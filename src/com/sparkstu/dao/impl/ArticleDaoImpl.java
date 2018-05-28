@@ -21,5 +21,6 @@ public class ArticleDaoImpl implements ArticleDao {
 		 BaseDao bd = new BaseDao();
 	     return bd.update(sql, params);
 	}
+	
 
 }

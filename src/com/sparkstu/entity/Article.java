@@ -8,9 +8,9 @@ public class Article {
 	private String author;
 	private String summary;
 	private String content;
-	private int commentNum;
-	private int heartNum;
-	private int readnum;
+	private long commentNum;
+	private long heartNum;
+	private long readnum;
 	private Date publishTime;
 	private String url;
 	private String signature;
@@ -18,12 +18,12 @@ public class Article {
 	private Date lastUpdateTime;
 	private String path;
 	private String coverURL;
-	private int type;
-	private int status;
+	private long type;
+	private long status;
 	private String statusName;
 	private String html;
 	private String tags;
-	private int shareNum;
+	private long shareNum;
 
 	public String getId() {
 		return id;
@@ -65,31 +65,31 @@ public class Article {
 		this.content = content;
 	}
 
-	public int getCommentNum() {
+	public long getCommentNum() {
 		return commentNum;
 	}
 
-	public void setCommentNum(int commentNum) {
+	public void setCommentNum(long commentNum) {
 		this.commentNum = commentNum;
 	}
 
-	public void setHeartNum(int heartNum) {
+	public void setHeartNum(long heartNum) {
 		this.heartNum = heartNum;
 	}
 
-	public void setReadnum(int readnum) {
+	public void setReadnum(long readnum) {
 		this.readnum = readnum;
 	}
 
-	public void setType(int type) {
+	public void setType(long type) {
 		this.type = type;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(long status) {
 		this.status = status;
 	}
 
-	public void setShareNum(int shareNum) {
+	public void setShareNum(long shareNum) {
 		this.shareNum = shareNum;
 	}
 

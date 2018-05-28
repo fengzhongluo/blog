@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
 <head>
@@ -10,18 +12,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="admin/image/png" href="admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="admin/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="admin/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="admin/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="admin/assets/css/app.css">
+    <script src="admin/assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="login">
-    <script src="assets/js/theme.js"></script>
+    <script src="admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 风格切换 -->
         <div class="tpl-skiner">
@@ -29,7 +31,7 @@
             </div>
             <div class="tpl-skiner-content">
                 <div class="tpl-skiner-content-title">
-                    选择主题
+                    	选择主题
                 </div>
                 <div class="tpl-skiner-content-bar">
                     <span class="skiner-color skiner-white" data-color="theme-white"></span>
@@ -45,41 +47,35 @@
 
 
 
-                <form class="am-form tpl-form-line-form">
+                <form class="am-form tpl-form-line-form" action="http://127.0.0.1:8080/blog/login" method="post">
                     <div class="am-form-group">
-                        <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入账号">
+                        <input type="text" class="tpl-form-input" id="user-name" name="username" placeholder="请输入账号" required>
 
                     </div>
 
                     <div class="am-form-group">
-                        <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
+                        <input type="password" class="tpl-form-input" id="user-name" name="password" placeholder="请输入密码" required>
 
                     </div>
                     <div class="am-form-group tpl-login-remember-me">
                         <input id="remember-me" type="checkbox">
-                        <label for="remember-me">
-       
-                        记住密码
-                         </label>
+                        <label for="remember-me">       
+                        	记住密码
+                        </label>
 
                     </div>
 
-
-
-
-
-
                     <div class="am-form-group">
 
-                        <button type="button" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+                        <button type="submint" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
 
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="admin/assets/js/amazeui.min.js"></script>
+    <script src="admin/assets/js/app.js"></script>
 
 </body>
 
