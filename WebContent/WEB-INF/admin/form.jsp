@@ -43,7 +43,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="http://127.0.0.1:8080/blog/admin?to=add" method="post">
+                                <form class="am-form tpl-form-border-form tpl-form-border-br" action="http://<%=request.getServerName() %>:<%=request.getServerPort() %>/blog/admin?to=add" enctype="multipart/form-data" method="post">
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
@@ -84,12 +84,12 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img src="admin/assets/img/a5.png" alt="">
+                                                    <img id="imgPre" src="admin/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
     												<i class="am-icon-cloud-upload"></i> 添加封面图片
                                                 </button>
-                                                <input id="doc-form-file" type="file" multiple="">
+                                                <input id="doc-form-file" type="file" multiple="" name="file" accept="image/*" onchange="preImg(this.id,'imgPre');">
                                             </div>
 
                                         </div>
@@ -163,7 +163,56 @@
     <script type="text/javascript" charset="utf-8" src="UEditor/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
     	var ue = UE.getEditor('editor').hasContents();
-    	//var html=ue.getContent();
+    	function getFileUrl(sourceId) {   
+            var url;   
+            if (navigator.userAgent.indexOf("MSIE")>=1) { // IE   
+            url = document.getElementById(sourceId).value;   
+        }   
+            else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox   
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));   
+        }   
+            else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome   
+            url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));   
+        }   
+            return url;   
+        }  
+        function preImg(sourceId, targetId) {   
+            var url = getFileUrl(sourceId);   
+            var imgPre = document.getElementById(targetId);   
+            imgPre.src = url;   
+        }   
+
+    	
+    	
+    	var uploading = false;
+    	function fileChange(){
+    		var img="<img src='"+$("#doc-form-file").val()+"' alt=''>";
+    		$(".tpl-form-file-img").html(img);
+    		
+    	}
+    	function fileChange1(){
+    	    $("#fileTypeError").html('');
+    	    var fileName = $('#doc-form-file').val();								//获得文件名称
+    	    var fileType = fileName.substr(fileName.length-4,fileName.length);	//截取文件类型,如(.xls)
+    	    if(fileType=='.jpg' || fileType=='.doc' || fileType=='.pdf'){	//验证文件类型,此处验证也可使用正则
+    	        $.ajax({
+    	            url: 'http://127.0.0.1:8080/blog/uploadfile',		　//上传地址
+    	            type: 'POST',
+    	            cache: false,　　
+    	            data: new FormData($('#uploadForm')[0]),　　　　　　　　　　　　　//表单数据
+    	            processData: false,
+    	            contentType: false,
+    	            success:function(data){
+    	                if(data=='fileTypeError'){
+    	                    $("#fileTypeError").html('*上传文件类型错误,支持类型: .xsl .doc .pdf');　　//根据后端返回值,回显错误信息
+    	                }
+    	                $("input[name='enclosureCode']").attr('value',data);
+    	            }
+    	        });
+    	    }else{
+    	        $("#fileTypeError").html('*上传文件类型错误,支持类型: .xls .doc .pdf');
+    	    }
+    	}
     </script>
 </body>
 
