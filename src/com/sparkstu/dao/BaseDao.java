@@ -18,7 +18,7 @@ import com.sparkstu.entity.Article;
 public class BaseDao {
 
 	private static final String DRIVENAME = "com.mysql.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://192.168.211.131:3306/blog?useSSL=false&useUnicode=true&characterEncoding=UTF8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull";
+	private static final String URL = "jdbc:mysql://192.168.6.128:3306/blog?useSSL=false&useUnicode=true&characterEncoding=UTF8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull";
 	private static final String USER = "root";
 	private static final String PASSWORD = "Wei67628315.";
 
