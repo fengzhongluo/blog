@@ -18,7 +18,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<Object> getArticleList() {
 
-		String sql = "select * from blog order by publishTime";
+		String sql = "select * from blog order by publishTime desc";
 		return articleDao.query(sql, null);
 	}
 
