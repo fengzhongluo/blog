@@ -75,17 +75,17 @@ public class UploadFile extends HttpServlet {
                     //得到上传的文件名称，
                     String filename = item.getName();                    
                     String filetype = filename.substring(filename.lastIndexOf("."), filename.length());
-                    System.out.println(filetype);
                     if(filename==null || filename.trim().equals("")){
                         continue;
                     }
                     //注意：不同的浏览器提交的文件名是不一样的，有些浏览器提交上来的文件名是带有路径的，如：  c:\a\b\1.txt，而有些只是单纯的文件名，如：1.txt
                     //处理获取到的上传文件的文件名的路径部分，只保留文件名部分
-                    long date = new Date().getTime();          
+                    long date = new Date().getTime();
+                    filename=String.valueOf(date)+filetype;
                     //获取item中的上传文件的输入流
                     InputStream in = item.getInputStream();
                     //创建一个文件输出流
-                    FileOutputStream out = new FileOutputStream(savePath + "\\" +String.valueOf(date)+filetype );
+                    FileOutputStream out = new FileOutputStream(savePath + "\\" +filename );
                     //创建一个缓冲区
                     byte buffer[] = new byte[1024];
                     //判断输入流中的数据是否已经读完的标识
@@ -101,15 +101,14 @@ public class UploadFile extends HttpServlet {
                     out.close();
                     //删除处理文件上传时生成的临时文件
                     item.delete();
-                    message = "文件上传成功！";
+                    message = filename;
                 }
             }
         }catch (Exception e) {
-            message= "文件上传失败！";
             e.printStackTrace();
             
         }
-		response.getWriter().append("message");
+		response.getWriter().append(message);
 	}
 
 	/**
