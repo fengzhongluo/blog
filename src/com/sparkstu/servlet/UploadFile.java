@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,13 +35,10 @@ public class UploadFile extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("11");
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		//保存文件
 		//得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
-        String savePath = this.getServletContext().getRealPath("/WEB-INF/upload");
+        String savePath = this.getServletContext().getRealPath("/front/assets/i");
         File file = new File(savePath);
         //判断上传文件的保存目录是否存在
         if (!file.exists() && !file.isDirectory()) {
@@ -75,18 +73,19 @@ public class UploadFile extends HttpServlet {
                     //System.out.println(name + "=" + value);
                 }else{//如果fileitem中封装的是上传文件
                     //得到上传的文件名称，
-                    String filename = item.getName();
-                    System.out.println(filename);
+                    String filename = item.getName();                    
+                    String filetype = filename.substring(filename.lastIndexOf("."), filename.length());
+                    System.out.println(filetype);
                     if(filename==null || filename.trim().equals("")){
                         continue;
                     }
                     //注意：不同的浏览器提交的文件名是不一样的，有些浏览器提交上来的文件名是带有路径的，如：  c:\a\b\1.txt，而有些只是单纯的文件名，如：1.txt
                     //处理获取到的上传文件的文件名的路径部分，只保留文件名部分
-                    filename = filename.substring(filename.lastIndexOf("\\")+1);
+                    long date = new Date().getTime();          
                     //获取item中的上传文件的输入流
                     InputStream in = item.getInputStream();
                     //创建一个文件输出流
-                    FileOutputStream out = new FileOutputStream(savePath + "\\" + filename);
+                    FileOutputStream out = new FileOutputStream(savePath + "\\" +String.valueOf(date)+filetype );
                     //创建一个缓冲区
                     byte buffer[] = new byte[1024];
                     //判断输入流中的数据是否已经读完的标识
@@ -110,9 +109,7 @@ public class UploadFile extends HttpServlet {
             e.printStackTrace();
             
         }
-        request.setAttribute("message",message);
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("message");
 	}
 
 	/**
