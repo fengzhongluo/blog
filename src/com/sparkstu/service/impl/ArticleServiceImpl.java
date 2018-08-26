@@ -39,7 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public int addArticle(Object[] params) {
-		String sql ="insert into blog(id,title,author,summary,content,publishTime,url,html,tags) values(uuid(),?,?,?,?,?,?,?,?)";
+		String sql ="insert into blog(id,title,author,summary,content,publishTime,url,html,tags,coverUrl) values(uuid(),?,?,?,?,?,?,?,?,?)";
         return articleDao.insert(sql, params);
 	}
 	@Override
@@ -47,6 +47,5 @@ public class ArticleServiceImpl implements ArticleService {
 		String sql ="update blog set title= ?,author=?,summary=?,content=?,publishTime=?,url=?,html=?,tags=? where id=?";
         return articleDao.insert(sql, params);
 	}
-	
 
 }

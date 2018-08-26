@@ -22,5 +22,6 @@ public class ArticleDaoImpl implements ArticleDao {
 	     return bd.update(sql, params);
 	}
 	
+	
 
 }

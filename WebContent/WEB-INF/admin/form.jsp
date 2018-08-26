@@ -90,6 +90,7 @@
     												<i class="am-icon-cloud-upload"></i> 添加封面图片
                                                 </button>
                                                 <input id="doc-form-file" type="file" multiple="" name="file" accept="image/*" onchange="preImg(this.id,'imgPre');">
+                                                <input id="coverUrl" type="hidden"  name="coverUrl" >
                                             </div>
 
                                         </div>
@@ -190,7 +191,9 @@
     	            processData: false,
     	            contentType: false,
     	            success:function(data){
+    	            	var file=data;
     	            	imgPre.src = url;
+    	            	document.getElementById("coverUrl").value="front/assets/i/"+file;
     	            }
     	        });
     	    }else{

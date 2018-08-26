@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Test;
 
 import com.sparkstu.entity.Article;
 
@@ -174,6 +175,36 @@ public class BaseDao {
 			closeConn();
 		}
 		return affectedLine;
+	}
+	
+	/**
+	 * 更新
+	 * 
+	 * @param sql
+	 * @param params
+	 * @return
+	 */
+	@Test
+	public void update() {
+		
+		conn = this.getConn();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			rs=stmt.getGeneratedKeys();
+			if (rs.next()) {  
+		      String  autoIncKeyFromApi = rs.getString(1);  
+		      System.out.println(autoIncKeyFromApi);
+		    }  else {  
+		        // throw an exception from here  
+		    } 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+
 	}
 	
 	private void closeConn() {
