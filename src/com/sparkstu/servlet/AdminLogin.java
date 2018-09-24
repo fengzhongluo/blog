@@ -32,7 +32,7 @@ public class AdminLogin extends HttpServlet {
 		if(("admin".equals(username)&&"wei67628315".equals(password))) {
 			request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
 		}else {
-			request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/admin/login.jsp").forward(request, response);
 		}
 		
 	}
