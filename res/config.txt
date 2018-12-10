@@ -1,4 +1,4 @@
-jdbcUrl = jdbc:mysql://192.168.211.131:3306/blog1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+jdbcUrl = jdbc:mysql://192.168.213.128:3306/blog1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
 user = root
 password =Wei67628315.
 devMode = true

@@ -12,18 +12,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="admin/image/png" href="admin/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="admin/assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="static/admin/image/png" href="static/admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="static/admin/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="admin/assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="admin/assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="admin/assets/css/app.css">
-    <script src="admin/assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/admin/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="static/admin/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="static/admin/assets/css/app.css">
+    <script src="static/admin/assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="login">
-    <script src="admin/assets/js/theme.js"></script>
+    <script src="static/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 风格切换 -->
         <div class="tpl-skiner">
@@ -44,7 +44,7 @@
                 <div class="tpl-login-logo">
 
                 </div>
-
+<div><%=request.getAttribute("flag") %></div>
                 <form class="am-form tpl-form-line-form" action="http://<%=request.getServerName() %>:<%=request.getServerPort() %>/blog/login" method="post">
                     <div class="am-form-group">
                         <input type="text" class="tpl-form-input" id="user-name" name="username" placeholder="请输入账号" required>
@@ -72,8 +72,8 @@
             </div>
         </div>
     </div>
-    <script src="admin/assets/js/amazeui.min.js"></script>
-    <script src="admin/assets/js/app.js"></script>
+    <script src="static/admin/assets/js/amazeui.min.js"></script>
+    <script src="static/admin/assets/js/app.js"></script>
 
 </body>
 

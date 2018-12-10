@@ -6,7 +6,7 @@
 <jsp:include page="common.jsp"></jsp:include>
 
 <body data-type="widgets">
-    <script src="admin/assets/js/theme.js"></script>
+    <script src="static/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
 		<jsp:include page="head.jsp"></jsp:include>
         <!-- 风格切换 -->
@@ -152,10 +152,10 @@
         </div>
     </div>
     </div>
-    <script src="admin/assets/js/amazeui.min.js"></script>
-    <script src="admin/assets/js/amazeui.datatables.min.js"></script>
-    <script src="admin/assets/js/dataTables.responsive.min.js"></script>
-    <script src="admin/assets/js/app.js"></script>
+    <script src="static/admin/assets/js/amazeui.min.js"></script>
+    <script src="static/admin/assets/js/amazeui.datatables.min.js"></script>
+    <script src="static/admin/assets/js/dataTables.responsive.min.js"></script>
+    <script src="static/admin/assets/js/app.js"></script>
 	<!-- UEditor -->
 	<script type="text/javascript" charset="utf-8" src="UEditor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="UEditor/ueditor.all.min.js"> </script>

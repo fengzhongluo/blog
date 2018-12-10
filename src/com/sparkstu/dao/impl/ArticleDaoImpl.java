@@ -1,12 +1,10 @@
 package com.sparkstu.dao.impl;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.sparkstu.dao.ArticleDao;
 import com.sparkstu.dao.BaseDao;
-import com.sparkstu.entity.Article;
 
 
 
