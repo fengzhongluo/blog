@@ -18,7 +18,7 @@ import com.sparkstu.service.impl.ArticleServiceImpl;
 /**
  * Servlet implementation class AdminServlet
  */
-@WebServlet("/back")
+@WebServlet("/back/index")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -155,7 +155,7 @@ public class AdminServlet extends HttpServlet {
 			//request.getRequestDispatcher("/WEB-INF/article?method=contents&id="+id).forward(request, response);
 			request.getRequestDispatcher("/WEB-INF/admin/form_edit.jsp").forward(request, response);
 		}else {
-			request.getRequestDispatcher("/WEB-INF/admin/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
 		}
 
 		// response.getWriter().append("Served at: ").append(request.getContextPath());

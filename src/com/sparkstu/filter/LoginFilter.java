@@ -37,12 +37,12 @@ public class LoginFilter implements Filter {
 		String username = (String) session.getAttribute("username");
 		// 判断请求的 路径中是否包含了 登录页面的请求
 		// 如果包含了，那么不过滤 继续执行操作
-		if (path.indexOf("/blog/login") > -1) {
+		if (path.indexOf("back/login") > -1) {
 			arg2.doFilter(req, resp);
 		} else {
 			// 如不包含，那么就要判断 session中否有标志，如果没有标志，那么不让他看，让他去登录，反之执行操作！
 			if (username == null || "".equals(username)) {
-				resp.sendRedirect("/blog/login");
+				resp.sendRedirect("back/login");
 			} else {
 				arg2.doFilter(req, resp);
 			}

@@ -27,7 +27,7 @@ import com.sparkstu.service.impl.LoginServiceImpl;
 /**
  * Servlet implementation class AdminLogin
  */
-@WebServlet("/login")
+@WebServlet("/back/login")
 public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -79,7 +79,9 @@ public class AdminLogin extends HttpServlet {
 				} else {
 					response.getWriter().print("服务器已经存在该session了，session的id是：" + sessionId);
 				}
-				request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
+				//request.getRequestDispatcher("/WEB-INF/admin/form.jsp").forward(request, response);
+				//request.getRequestDispatcher("/back/index").forward(request, response);
+				response.sendRedirect("/back/index");
 			} else {
 				request.setAttribute("flag","用户名或密码错误");
 				request.getRequestDispatcher("/WEB-INF/admin/login.jsp").forward(request, response);

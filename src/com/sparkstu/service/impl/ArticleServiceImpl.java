@@ -15,6 +15,9 @@ public class ArticleServiceImpl implements ArticleService {
 	
 	ArticleDao articleDao = new ArticleDaoImpl();
 
+	/* 
+	 * @see com.sparkstu.service.ArticleService#getArticleList()
+	 */
 	@Override
 	public List<Object> getArticleList() {
 
@@ -22,6 +25,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleDao.query(sql, null);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.sparkstu.service.ArticleService#getArticle(java.lang.Object[])
+	 */
 	@Override
 	public Article getArticle(Object[] params) throws IllegalAccessException, InstantiationException, InvocationTargetException, IntrospectionException {
 		String sql="select * from blog where id=? ";
