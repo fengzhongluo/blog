@@ -5,7 +5,7 @@
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
-                <a href="javascript:;"><img src="static/admin/assets/img/logo.png" alt=""></a>
+                <a href="javascript:;"><img src="/admin/assets/img/logo.png" alt=""></a>
             </div>
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
@@ -41,7 +41,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="admin/assets/img/user04.png" alt="">
+                                            <img src="/admin/assets/img/user04.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             3小时前
@@ -60,7 +60,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="static/admin/assets/img/user02.png" alt="">
+                                            <img src="/admin/assets/img/user02.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             5天前
@@ -137,7 +137,7 @@
 
                         <!-- 退出 -->
                         <li class="am-text-sm">
-                            <a href="javascript:;">
+                            <a href="/back/logout">
                                 <span class="am-icon-sign-out"></span> 退出
                             </a>
                         </li>

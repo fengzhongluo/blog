@@ -33,7 +33,7 @@
         <hr>
         <div class="am-g blog-author blog-article-margin">
           <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
-            <img src="assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
+            <img src="front/assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
           </div>
           <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
           <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">amazeui</span></h3>
@@ -115,14 +115,14 @@
   </footer>
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
+<script src="static/front/assets/js/jquery.min.js"></script>
 <!--<![endif]-->
 <!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-<script src="assets/js/amazeui.min.js"></script>
+<script src="static/front/assets/js/amazeui.min.js"></script>
 <!-- <script src="assets/js/app.js"></script> -->
 </body>
 </html>

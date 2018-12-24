@@ -6,7 +6,7 @@
 <jsp:include page="common.jsp"></jsp:include>
 
 <body data-type="widgets">
-    <script src="static/admin/assets/js/theme.js"></script>
+    <script src="/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
 		<jsp:include page="head.jsp"></jsp:include>
         <!-- 风格切换 -->
@@ -84,7 +84,7 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img id="imgPre" src="admin/assets/img/a5.png" alt="">
+                                                    <img id="imgPre" src="/admin/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
     												<i class="am-icon-cloud-upload"></i> 添加封面图片
@@ -152,16 +152,16 @@
         </div>
     </div>
     </div>
-    <script src="static/admin/assets/js/amazeui.min.js"></script>
-    <script src="static/admin/assets/js/amazeui.datatables.min.js"></script>
-    <script src="static/admin/assets/js/dataTables.responsive.min.js"></script>
-    <script src="static/admin/assets/js/app.js"></script>
+    <script src="/admin/assets/js/amazeui.min.js"></script>
+    <script src="/admin/assets/js/amazeui.datatables.min.js"></script>
+    <script src="/admin/assets/js/dataTables.responsive.min.js"></script>
+    <script src="/admin/assets/js/app.js"></script>
 	<!-- UEditor -->
-	<script type="text/javascript" charset="utf-8" src="UEditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="UEditor/ueditor.all.min.js"> </script>
+	<script type="text/javascript" charset="utf-8" src="/UEditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/UEditor/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-    <script type="text/javascript" charset="utf-8" src="UEditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/UEditor/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
     	var ue = UE.getEditor('editor').hasContents();
     	function getFileUrl(sourceId) {   
@@ -184,7 +184,7 @@
     	    var fileType = fileName.substr(fileName.length-4,fileName.length);	//截取文件类型,如(.xls)
     	    if(fileType=='.jpg' || fileType=='.doc' || fileType=='.pdf'){	//验证文件类型,此处验证也可使用正则
     	        $.ajax({
-    	            url: 'http://127.0.0.1:8080/blog/uploadfile',//上传地址
+    	            url: '/back/uploadfile',//上传地址
     	            type: 'POST',
     	            cache: false,
     	            data: new FormData(document.getElementById("formdata")),//表单数据,必须用js原生的方式获取form表单
@@ -193,7 +193,7 @@
     	            success:function(data){
     	            	var file=data;
     	            	imgPre.src = url;
-    	            	document.getElementById("coverUrl").value="front/assets/i/"+file;
+    	            	document.getElementById("coverUrl").value="/admin/front/assets/i/"+file;
     	            }
     	        });
     	    }else{

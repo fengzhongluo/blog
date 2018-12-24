@@ -9,16 +9,16 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="renderer" content="webkit">
 	    <meta http-equiv="Cache-Control" content="no-siteapp" />
- 	    <link rel="icon" type="image/png" href="static/front/assets/i/favicon.png"> <!--标签页的logn -->
-	    <link rel="apple-touch-icon-precomposed" href="static/admin/assets/i/app-icon72x72@2x.png">
+ 	    <link rel="icon" type="image/png" href="/admin/assets/i/favicon.png"> <!--标签页的logn -->
+	    <link rel="apple-touch-icon-precomposed" href="/admin/assets/i/app-icon72x72@2x.png">
 	    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-	    <script src="static/admin/assets/js/echarts.min.js"></script>
-	    <link rel="stylesheet" href="static/admin/assets/css/amazeui.min.css" />
-	    <link rel="stylesheet" href="static/admin/assets/css/amazeui.datatables.min.css" />
-	    <link rel="stylesheet" href="static/admin/assets/css/app.css">
-	    <script src="static/admin/assets/js/jquery.min.js"></script>
-		<script src="static/admin/assets/js/amazeui.min.js"></script>
-	    <script src="static/admin/assets/js/amazeui.datatables.min.js"></script>
-	    <script src="static/admin/assets/js/dataTables.responsive.min.js"></script>
-	    <script src="static/admin/assets/js/app.js"></script>
+	    <script src="/admin/assets/js/echarts.min.js"></script>
+	    <link rel="stylesheet" href="/admin/assets/css/amazeui.min.css" />
+	    <link rel="stylesheet" href="/admin/assets/css/amazeui.datatables.min.css" />
+	    <link rel="stylesheet" href="/admin/assets/css/app.css">
+	    <script src="/admin/assets/js/jquery.min.js"></script>
+		<script src="/admin/assets/js/amazeui.min.js"></script>
+	    <script src="/admin/assets/js/amazeui.datatables.min.js"></script>
+	    <script src="/admin/assets/js/dataTables.responsive.min.js"></script>
+	    <script src="/admin/assets/js/app.js"></script>
 	</head>
