@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.sparkstu.dao.ArticleDao;
+import com.sparkstu.dao.NavigationDao;
 import com.sparkstu.dao.impl.ArticleDaoImpl;
+import com.sparkstu.dao.impl.NavigationDaoImpl;
 import com.sparkstu.entity.Article;
 import com.sparkstu.service.ArticleService;
 import com.sparkstu.utils.BeanUtils;
@@ -14,7 +16,7 @@ import com.sparkstu.utils.BeanUtils;
 public class ArticleServiceImpl implements ArticleService {
 	
 	ArticleDao articleDao = new ArticleDaoImpl();
-
+	NavigationDao navigationDao =new NavigationDaoImpl();
 	/* 
 	 * @see com.sparkstu.service.ArticleService#getArticleList()
 	 */
@@ -52,6 +54,12 @@ public class ArticleServiceImpl implements ArticleService {
 	public int editArticle(Object[] params) {
 		String sql ="update blog set title= ?,author=?,summary=?,content=?,publishTime=?,url=?,html=?,tags=? where id=?";
         return articleDao.insert(sql, params);
+	}
+
+	@Override
+	public List<Object> getNavigationList() {
+ 		String sql ="select * from front_navigation order by navigation_order ";
+        return navigationDao.query(sql);
 	}
 
 }

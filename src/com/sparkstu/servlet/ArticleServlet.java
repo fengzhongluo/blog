@@ -16,7 +16,8 @@ import com.sparkstu.service.ArticleService;
 import com.sparkstu.service.impl.ArticleServiceImpl;
 
 /**
- * Servlet implementation class ArticleServlet
+ * 首页展示
+ * 
  */
 @WebServlet("/article")
 public class ArticleServlet extends HttpServlet {
