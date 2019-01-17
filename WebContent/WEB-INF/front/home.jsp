@@ -69,7 +69,7 @@
 		<c:forEach items="${list}" var="list">
 	        <article class="am-g blog-entry-article">
 	            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-	                <img src="${list.coverURL}" alt="" class="am-u-sm-12">
+	                <img src="image?id=${list.coverURL}" alt="" class="am-u-sm-12">
 	            </div>
 	            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
 	                <span><a href="" class="blog-color">article&nbsp;</a></span>

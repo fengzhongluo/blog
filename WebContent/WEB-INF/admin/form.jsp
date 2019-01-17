@@ -43,7 +43,7 @@
                             </div>
                             <div class="widget-body am-fr">
 
-                                <form id="formdata" class="am-form tpl-form-border-form tpl-form-border-br" action="http://<%=request.getServerName() %>:<%=request.getServerPort() %>/blog/admin?to=add"  method="post">
+                                <form id="formdata" class="am-form tpl-form-border-form tpl-form-border-br" action="http://<%=request.getServerName() %>:<%=request.getServerPort() %>/back/index?to=add"  method="post">
                                     <div class="am-form-group">
                                         <label for="user-name" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
                                         <div class="am-u-sm-9">
@@ -193,7 +193,7 @@
     	            success:function(data){
     	            	var file=data;
     	            	imgPre.src = url;
-    	            	document.getElementById("coverUrl").value="/admin/front/assets/i/"+file;
+    	            	document.getElementById("coverUrl").value=file;
     	            }
     	        });
     	    }else{

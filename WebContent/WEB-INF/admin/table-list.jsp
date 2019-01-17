@@ -7,7 +7,7 @@
 <jsp:include page="common.jsp"></jsp:include>
 
 <body data-type="widgets">
-    <script src="assets/js/theme.js"></script>
+    <script src="/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <jsp:include page="head.jsp"></jsp:include>
         <!-- 风格切换 -->
@@ -91,7 +91,7 @@
                                                 <td>${list.publishTime }</td>
                                                 <td>
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="<%=request.getContextPath() %>/admin?to=form_edit&id=${list.id}">
+                                                        <a href="<%=request.getContextPath() %>/back/index?to=form_edit&id=${list.id}">
                                                             <i class="am-icon-pencil"></i> 编辑
                                                         </a>
                                                         <a href="javascript:;" class="tpl-table-black-operation-del">

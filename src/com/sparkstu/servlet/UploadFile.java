@@ -20,7 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 /**
  * Servlet implementation class UploadFile
  */
-@WebServlet("/uploadfile")
+@WebServlet("/back/uploadfile")
 public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,7 +38,9 @@ public class UploadFile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		//保存文件
 		//得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
-        String savePath = this.getServletContext().getRealPath("/front/assets/i");
+        //String savePath = this.getServletContext().getRealPath("/front/assets/i");
+        String savePath = this.getServletContext().getRealPath("/WEB-INF/Upload/");
+		//String savePath = "\\";
         File file = new File(savePath);
         //判断上传文件的保存目录是否存在
         if (!file.exists() && !file.isDirectory()) {
@@ -85,7 +87,7 @@ public class UploadFile extends HttpServlet {
                     //获取item中的上传文件的输入流
                     InputStream in = item.getInputStream();
                     //创建一个文件输出流
-                    FileOutputStream out = new FileOutputStream(savePath + "\\" +filename );
+                    FileOutputStream out = new FileOutputStream(savePath + filename );
                     //创建一个缓冲区
                     byte buffer[] = new byte[1024];
                     //判断输入流中的数据是否已经读完的标识
@@ -101,7 +103,7 @@ public class UploadFile extends HttpServlet {
                     out.close();
                     //删除处理文件上传时生成的临时文件
                     item.delete();
-                    message = filename;
+                    message = filename.substring(0, filename.indexOf("."));
                 }
             }
         }catch (Exception e) {

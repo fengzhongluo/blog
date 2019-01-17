@@ -42,7 +42,7 @@ public class LoginFilter implements Filter {
 		} else {
 			// 如不包含，那么就要判断 session中否有标志，如果没有标志，那么不让他看，让他去登录，反之执行操作！
 			if (username == null || "".equals(username)) {
-				resp.sendRedirect("back/login");
+				resp.sendRedirect("/back/login");
 			} else {
 				arg2.doFilter(req, resp);
 			}

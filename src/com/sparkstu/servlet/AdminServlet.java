@@ -18,7 +18,7 @@ import com.sparkstu.service.impl.ArticleServiceImpl;
 /**
  * Servlet implementation class AdminServlet
  */
-@WebServlet("/back/index")
+@WebServlet("/back/form")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

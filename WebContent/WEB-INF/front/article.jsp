@@ -15,7 +15,7 @@
           </p>
         </div>        
         <div class="am-article-bd">
-        <img src="${article.coverURL}" alt="" class="blog-entry-img blog-article-margin">          
+        <img src="image?id=${article.coverURL}" alt="" class="blog-entry-img blog-article-margin">          
        		${article.html}
         </div>
       </article>
@@ -115,14 +115,14 @@
   </footer>
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="static/front/assets/js/jquery.min.js"></script>
+<script src="front/assets/js/jquery.min.js"></script>
 <!--<![endif]-->
 <!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-<script src="static/front/assets/js/amazeui.min.js"></script>
+<script src="front/assets/js/amazeui.min.js"></script>
 <!-- <script src="assets/js/app.js"></script> -->
 </body>
 </html>
